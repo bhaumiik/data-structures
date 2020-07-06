@@ -32,6 +32,7 @@
 		B947B96E24B3C7B000C0A4F8 = {
 			isa = PBXGroup;
 			children = (
+				B94D380D24B3EA7E00EC3E62 /* HashTable */,
 				B947B99024B3C7B100C0A4F8 /* HashTableTests */,
 				B947B97824B3C7B000C0A4F8 /* Products */,
 			);
@@ -48,11 +49,18 @@
 		B947B99024B3C7B100C0A4F8 /* HashTableTests */ = {
 			isa = PBXGroup;
 			children = (
-				B947B99C24B3C7FA00C0A4F8 /* HashTable.swift */,
 				B947B99124B3C7B100C0A4F8 /* HashTableTests.swift */,
 				B947B99324B3C7B100C0A4F8 /* Info.plist */,
 			);
 			path = HashTableTests;
+			sourceTree = "<group>";
+		};
+		B94D380D24B3EA7E00EC3E62 /* HashTable */ = {
+			isa = PBXGroup;
+			children = (
+				B947B99C24B3C7FA00C0A4F8 /* HashTable.swift */,
+			);
+			path = HashTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import HashTable
 
 class HashTableTests: XCTestCase {
     var hashTable: HashTable<String, String>!

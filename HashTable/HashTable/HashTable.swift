@@ -13,16 +13,21 @@ public struct HashTable<Key: Hashable, Value> {
     private typealias Bucket = [Element]
     private var buckets: [Bucket]
     
+    /// Initializes `HashTable`.
     init(capacity: Int) {
         self.buckets = Array(repeating: [], count: capacity)
     }
     
+    /// Computes hash code for the `Key` and maps it to array index.
+    /// - Returns: The index of bucket where the `Key` is located.
+    /// - Complexity: O(1)
     private func getIndex(key: Key) -> Int {
         let hashValue = "\(key)".hash
         return abs(hashValue % self.buckets.count)
     }
  
-    // insert/update
+    /// Inserts new value or updates the existing value for given `Key`.
+    /// - Complexity: O(1) assuming a good implementation that keeps collisions to minimum. The worst case runtime is O(*n*), where *n* is the number of keys.
     private mutating func update(value: Value, key: Key) {
         let index = self.getIndex(key: key)
         for (row, element) in self.buckets[index].enumerated() {
@@ -37,7 +42,8 @@ public struct HashTable<Key: Hashable, Value> {
         self.buckets[index].append(Element(key: key, value: value))
     }
     
-    // lookup
+    /// - Returns: The value for the given `Key`.
+    /// - Complexity: O(1) assuming a good implementation that keeps collisions to minimum. The worst case runtime is O(*n*), where *n* is the number of keys.
     private func lookup(key: Key) -> Value? {
         let index = self.getIndex(key: key)
         for element in self.buckets[index] {
@@ -48,7 +54,8 @@ public struct HashTable<Key: Hashable, Value> {
         return nil
     }
     
-    // remove
+    /// Removes value for the given `Key`.
+    /// - Complexity: O(1) assuming a good implementation that keeps collisions to minimum. The worst case runtime is O(*n*), where *n* is the number of keys.
     private mutating func remove(key: Key) {
         let index = self.getIndex(key: key)
         for (row, element) in self.buckets[index].enumerated() {

@@ -9,25 +9,41 @@
 import XCTest
 
 class StackTests: XCTestCase {
-
+    var stack: Stack<Int>!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.stack = Stack()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.stack = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testPush() throws {
+        self.stack.push(element: 10)
+        XCTAssertTrue(self.stack.isEmpty() == false)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testPop() throws {
+        self.stack.push(element: 2)
+        self.stack.push(element: 4)
+        self.stack.push(element: 5)
+        let element = self.stack.pop()
+        XCTAssertTrue(element == 5)
     }
-
+    
+    func testPeek() throws {
+        self.stack.push(element: 2)
+        self.stack.push(element: 4)
+        self.stack.push(element: 5)
+        self.stack.push(element: 8)
+        XCTAssertTrue(self.stack.peek() == 8)
+    }
+    
+    func testSize() throws {
+        self.stack.push(element: 1)
+        self.stack.push(element: 2)
+        self.stack.push(element: 3)
+        XCTAssertTrue(self.stack.getSize() == 3)
+    }
 }

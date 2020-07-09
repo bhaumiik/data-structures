@@ -21,7 +21,7 @@ class StackTests: XCTestCase {
 
     func testPush() throws {
         self.stack.push(element: 10)
-        XCTAssertTrue(self.stack.isEmpty() == false)
+        XCTAssertFalse(self.stack.isEmpty())
     }
     
     func testPop() throws {

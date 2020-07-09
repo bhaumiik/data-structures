@@ -9,25 +9,45 @@
 import XCTest
 
 class QueueTests: XCTestCase {
+    var queue: Queue<Int>!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.queue = Queue()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.queue = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testEnqueue() throws {
+        self.queue.enqueue(element: 3)
+        XCTAssertFalse(self.queue.isEmpty())
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testDequeue() throws {
+        self.queue.enqueue(element: 1)
+        self.queue.enqueue(element: 2)
+        self.queue.enqueue(element: 3)
+        let element = self.queue.dequeue()
+        XCTAssertTrue(element == 1)
     }
-
+    
+    func testPeek() throws {
+        self.queue.enqueue(element: 1)
+        self.queue.enqueue(element: 2)
+        self.queue.enqueue(element: 3)
+        let element = self.queue.front()
+        XCTAssertTrue(element == 1)
+    }
+    
+    func testSize() throws {
+        self.queue.enqueue(element: 14)
+        self.queue.enqueue(element: 22)
+        self.queue.enqueue(element: 35)
+        self.queue.enqueue(element: 12)
+        self.queue.enqueue(element: 21)
+        self.queue.enqueue(element: 37)
+        let size = self.queue.getSize()
+        XCTAssertTrue(size == 6)
+    }
 }

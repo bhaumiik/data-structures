@@ -37,7 +37,7 @@ public struct Stack<Element> {
     }
     
     /// Checks if Stack is empty.
-    /// - Returns: `True` is Stack is empty.
+    /// - Returns: `true` is Stack is empty.
     /// - Complexity: O(1)
     public func isEmpty() -> Bool {
         return self.elements.isEmpty

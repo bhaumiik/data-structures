@@ -37,7 +37,7 @@ public struct Queue<Element> {
     }
     
     /// Checks if the queue is empty.
-    /// - Returns: True if the Queue is empty.
+    /// - Returns: `true` if the Queue is empty.
     /// - Complexity: O(1)
     public func isEmpty() -> Bool {
         return self.elements.isEmpty

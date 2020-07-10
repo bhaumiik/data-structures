@@ -9,25 +9,51 @@
 import XCTest
 
 class SinglyLinkedListTests: XCTestCase {
-
+    var singlyLinkedList: SinglyLinkedList<Int>!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.singlyLinkedList = SinglyLinkedList<Int>(node: 1)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.singlyLinkedList = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInsert() throws {
+        self.singlyLinkedList.insert(node: 2)
+        self.singlyLinkedList.insert(node: 3)
+        XCTAssertTrue(self.singlyLinkedList.getTail()?.node == 3)
+    }
+    
+    func testDeleteFirstNode() throws {
+        self.singlyLinkedList.insert(node: 2)
+        self.singlyLinkedList.insert(node: 3)
+        self.singlyLinkedList.insert(node: 4)
+        self.singlyLinkedList.insert(node: 5)
+        let head = self.singlyLinkedList.delete(node: 1)
+        XCTAssertTrue(head?.node == 2)
+        XCTAssertTrue(head?.next?.node == 3)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testDeleteMiddleNode() throws {
+        self.singlyLinkedList.insert(node: 1)
+        self.singlyLinkedList.insert(node: 2)
+        self.singlyLinkedList.insert(node: 3)
+        self.singlyLinkedList.insert(node: 4)
+        self.singlyLinkedList.insert(node: 5)
+        let head = self.singlyLinkedList.delete(node: 3)
+        XCTAssertTrue(head?.node == 2)
+        XCTAssertTrue(head?.next?.node == 4)
     }
-
+    
+    func testDeleteLastNode() throws {
+        self.singlyLinkedList.insert(node: 1)
+        self.singlyLinkedList.insert(node: 2)
+        self.singlyLinkedList.insert(node: 3)
+        self.singlyLinkedList.insert(node: 4)
+        self.singlyLinkedList.insert(node: 5)
+        let head = self.singlyLinkedList.delete(node: 5)
+        XCTAssertTrue(head?.node == 4)
+        XCTAssertTrue(head?.next?.node == nil)
+    }
 }

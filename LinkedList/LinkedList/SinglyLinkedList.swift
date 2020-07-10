@@ -12,7 +12,7 @@ public class SinglyLinkedList<Node: Equatable> {
     public var node: Node
     public var next: SinglyLinkedList<Node>?
     
-    /// Initialized `LinkedList`.
+    /// Initializes `LinkedList`.
     init(node: Node) {
         self.node = node
     }

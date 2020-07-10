@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B90A181324B7DA2A00CD838A /* SinglyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A181224B7DA2A00CD838A /* SinglyLinkedListTests.swift */; };
 		B90A181E24B7DA6400CD838A /* SinglyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A181D24B7DA6400CD838A /* SinglyLinkedList.swift */; };
+		B90A182024B7F33D00CD838A /* DoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A181F24B7F33D00CD838A /* DoublyLinkedList.swift */; };
+		B90A182224B7F35000CD838A /* DoublyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90A182124B7F35000CD838A /* DoublyLinkedListTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +18,8 @@
 		B90A181224B7DA2A00CD838A /* SinglyLinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedListTests.swift; sourceTree = "<group>"; };
 		B90A181424B7DA2A00CD838A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B90A181D24B7DA6400CD838A /* SinglyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedList.swift; sourceTree = "<group>"; };
+		B90A181F24B7F33D00CD838A /* DoublyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublyLinkedList.swift; sourceTree = "<group>"; };
+		B90A182124B7F35000CD838A /* DoublyLinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublyLinkedListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				B90A181D24B7DA6400CD838A /* SinglyLinkedList.swift */,
+				B90A181F24B7F33D00CD838A /* DoublyLinkedList.swift */,
 			);
 			path = LinkedList;
 			sourceTree = "<group>";
@@ -58,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				B90A181224B7DA2A00CD838A /* SinglyLinkedListTests.swift */,
+				B90A182124B7F35000CD838A /* DoublyLinkedListTests.swift */,
 				B90A181424B7DA2A00CD838A /* Info.plist */,
 			);
 			path = LinkedListTests;
@@ -132,7 +138,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90A181E24B7DA6400CD838A /* SinglyLinkedList.swift in Sources */,
+				B90A182024B7F33D00CD838A /* DoublyLinkedList.swift in Sources */,
 				B90A181324B7DA2A00CD838A /* SinglyLinkedListTests.swift in Sources */,
+				B90A182224B7F35000CD838A /* DoublyLinkedListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

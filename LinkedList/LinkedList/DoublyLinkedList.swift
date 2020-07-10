@@ -1,5 +1,5 @@
 //
-//  SinglyLinkedList.swift
+//  DoublyLinkedList.swift
 //  LinkedListTests
 //
 //  Created by Bhaumik on 2020-07-09.
@@ -8,10 +8,11 @@
 
 import Foundation
 
-public class SinglyLinkedList<Node: Equatable> {
+public class DoublyLinkedList<Node: Equatable> {
     public var node: Node
-    public var next: SinglyLinkedList<Node>?
-    
+    public var previous: DoublyLinkedList<Node>?
+    public var next: DoublyLinkedList<Node>?
+
     /// Initializes `LinkedList`.
     init(node: Node) {
         self.node = node
@@ -19,7 +20,7 @@ public class SinglyLinkedList<Node: Equatable> {
     
     /// Finds the tail of the `LinkedList`.
     /// - Complexity: O(*n*), where *n* is the number of Nodes in the `LinkedList`.
-    public func getTail() -> SinglyLinkedList<Node>? {
+    public func getTail() -> DoublyLinkedList<Node>? {
         var tail = self
         while tail.next != nil {
             tail = tail.next!
@@ -29,7 +30,7 @@ public class SinglyLinkedList<Node: Equatable> {
     
     /// Searches head for the given `Node`.
     /// - Complexity: O(*n*), where *n* is the number of Nodes in the `LinkedList`.
-    public func searchHead(node: Node) -> SinglyLinkedList<Node>? {
+    public func searchHead(node: Node) -> DoublyLinkedList<Node>? {
         var head = self
         while head.next != nil {
             if head.next?.node == node {
@@ -43,18 +44,21 @@ public class SinglyLinkedList<Node: Equatable> {
     /// Inserts node at the end of the `LinkedList`.
     /// - Complexity: O(1)
     public func insert(node: Node) {
-        let tail = getTail()
-        tail?.next = SinglyLinkedList<Node>(node: node)
+        let tail = self.getTail()
+        let node = DoublyLinkedList(node: node)
+        node.previous = tail
+        tail?.next = node
     }
     
-    /// Deletes node from the `LinkedList` and adjusts pointer.
+    /// Deletes node from the `LinkedList` and adjusts `next` and `previous` pointers.
     /// - Complexity: O(1)
-    public func delete(node: Node) -> SinglyLinkedList<Node>? {
-        var head: SinglyLinkedList<Node>? = self
+    public func delete(node: Node) -> DoublyLinkedList<Node>? {
+        var head: DoublyLinkedList<Node>? = self
         if head?.node == node {
             return head?.next // moved head
         }
-        head = self.searchHead(node: node)
+        head = searchHead(node: node)
+        head?.next?.next?.previous = head
         head?.next = head?.next?.next
         return head
     }

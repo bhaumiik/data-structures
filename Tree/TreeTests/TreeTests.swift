@@ -53,6 +53,7 @@ class TreeTests: XCTestCase {
         
         coldNode.add(child: sodaNode)
         coldNode.add(child: milkNode)
+        print(self.treeRootNode.description) // prints tree description
         
         let node = self.treeRootNode.search(value: "tea")
         XCTAssertTrue(node?.parent?.value == "hot")

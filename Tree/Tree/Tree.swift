@@ -39,3 +39,14 @@ public class Tree<Node: Equatable> {
         return nil
     }
 }
+
+extension Tree: CustomStringConvertible {
+    // beverages { hot { tea { black, green }, coffee, cocoa }, cold { soda, milk } }
+    public var description: String {
+        var string = "\(value)"
+        if !self.children.isEmpty {
+            string += " { \(self.children.map { $0.description }.joined(separator: ", ")) }"
+        }
+        return string
+    }
+}

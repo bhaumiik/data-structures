@@ -26,7 +26,7 @@ public struct Stack<Element> {
     /// Removes the top element of the Stack.
     /// - Returns: The top element of the Stack.
     /// - Complexity: O(1)
-    public mutating func pop() -> Element? {
+    @discardableResult public mutating func pop() -> Element? {
         return self.elements.removeLast()
     }
     

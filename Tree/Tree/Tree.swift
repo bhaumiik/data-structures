@@ -41,7 +41,6 @@ public class Tree<Node: Equatable> {
 }
 
 extension Tree: CustomStringConvertible {
-    // beverages { hot { tea { black, green }, coffee, cocoa }, cold { soda, milk } }
     public var description: String {
         var string = "\(value)"
         if !self.children.isEmpty {

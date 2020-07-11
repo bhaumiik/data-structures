@@ -13,45 +13,34 @@ class SinglyLinkedListTests: XCTestCase {
     
     override func setUpWithError() throws {
         self.singlyLinkedList = SinglyLinkedList<Int>(node: 1)
+        self.singlyLinkedList.insert(node: 2)
+        self.singlyLinkedList.insert(node: 3)
+        self.singlyLinkedList.insert(node: 4)
+        self.singlyLinkedList.insert(node: 5)
     }
 
     override func tearDownWithError() throws {
         self.singlyLinkedList = nil
     }
 
-    func testInsert() throws {
-        self.singlyLinkedList.insert(node: 2)
-        self.singlyLinkedList.insert(node: 3)
-        XCTAssertTrue(self.singlyLinkedList.getTail()?.node == 3)
+    func testInsert() {
+        self.singlyLinkedList.insert(node: 6)
+        XCTAssertTrue(self.singlyLinkedList.getTail()?.node == 6)
     }
     
-    func testDeleteFirstNode() throws {
-        self.singlyLinkedList.insert(node: 2)
-        self.singlyLinkedList.insert(node: 3)
-        self.singlyLinkedList.insert(node: 4)
-        self.singlyLinkedList.insert(node: 5)
+    func testDeleteFirstNode() {
         let head = self.singlyLinkedList.delete(node: 1)
         XCTAssertTrue(head?.node == 2)
         XCTAssertTrue(head?.next?.node == 3)
     }
 
-    func testDeleteMiddleNode() throws {
-        self.singlyLinkedList.insert(node: 1)
-        self.singlyLinkedList.insert(node: 2)
-        self.singlyLinkedList.insert(node: 3)
-        self.singlyLinkedList.insert(node: 4)
-        self.singlyLinkedList.insert(node: 5)
+    func testDeleteMiddleNode() {
         let head = self.singlyLinkedList.delete(node: 3)
         XCTAssertTrue(head?.node == 2)
         XCTAssertTrue(head?.next?.node == 4)
     }
     
-    func testDeleteLastNode() throws {
-        self.singlyLinkedList.insert(node: 1)
-        self.singlyLinkedList.insert(node: 2)
-        self.singlyLinkedList.insert(node: 3)
-        self.singlyLinkedList.insert(node: 4)
-        self.singlyLinkedList.insert(node: 5)
+    func testDeleteLastNode() {
         let head = self.singlyLinkedList.delete(node: 5)
         XCTAssertTrue(head?.node == 4)
         XCTAssertTrue(head?.next?.node == nil)

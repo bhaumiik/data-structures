@@ -13,37 +13,45 @@ class StackTests: XCTestCase {
     
     override func setUpWithError() throws {
         self.stack = Stack()
+        self.stack.push(element: 1)
+        self.stack.push(element: 2)
+        self.stack.push(element: 3)
+        self.stack.push(element: 4)
+        self.stack.push(element: 5)
     }
 
     override func tearDownWithError() throws {
         self.stack = nil
     }
-
-    func testPush() throws {
-        self.stack.push(element: 10)
+    
+    func testIsNotEmpty() {
         XCTAssertFalse(self.stack.isEmpty())
     }
     
-    func testPop() throws {
-        self.stack.push(element: 2)
-        self.stack.push(element: 4)
-        self.stack.push(element: 5)
+    func testIsEmpty() {
+        self.stack.pop()
+        self.stack.pop()
+        self.stack.pop()
+        self.stack.pop()
+        self.stack.pop()
+        XCTAssertTrue(self.stack.isEmpty())
+    }
+
+    func testPush() {
+        self.stack.push(element: 10)
+        XCTAssertTrue(self.stack.peek() == 10)
+    }
+    
+    func testPop() {
         let element = self.stack.pop()
         XCTAssertTrue(element == 5)
     }
     
-    func testPeek() throws {
-        self.stack.push(element: 2)
-        self.stack.push(element: 4)
-        self.stack.push(element: 5)
-        self.stack.push(element: 8)
-        XCTAssertTrue(self.stack.peek() == 8)
+    func testPeek() {
+        XCTAssertTrue(self.stack.peek() == 5)
     }
     
-    func testSize() throws {
-        self.stack.push(element: 1)
-        self.stack.push(element: 2)
-        self.stack.push(element: 3)
-        XCTAssertTrue(self.stack.getSize() == 3)
+    func testSize() {
+        XCTAssertTrue(self.stack.getSize() == 5)
     }
 }

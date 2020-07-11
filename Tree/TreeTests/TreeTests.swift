@@ -19,7 +19,7 @@ class TreeTests: XCTestCase {
         self.treeRootNode = nil
     }
 
-    func testAddChild() throws {
+    func testAddChild() {
         let hotNode = Tree<String>(value: "hot")
         let coldNode = Tree<String>(value: "cold")
         self.treeRootNode.add(child: hotNode)
@@ -27,7 +27,7 @@ class TreeTests: XCTestCase {
         XCTAssertTrue(self.treeRootNode.children.count > 0)
     }
     
-    func testSearchChild() throws {
+    func testSearchChild() {
         let hotNode = Tree<String>(value: "hot")
         let coldNode = Tree<String>(value: "cold")
         

@@ -9,25 +9,67 @@
 import XCTest
 
 class BinarySearchTreeTests: XCTestCase {
-
+    var binarySearchTree: BinarySearchTree<Int>!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.binarySearchTree = BinarySearchTree<Int>(array: [7, 2, 5, 10, 9, 1])
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testSearch() {
+        let node = self.binarySearchTree.search(value: 2)
+        XCTAssertTrue(node?.value == 2)
+        XCTAssertTrue(node?.parent?.value == 7)
+        XCTAssertTrue(node?.left?.value == 1)
+        XCTAssertTrue(node?.right?.value == 5)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testDelete() {
+        self.binarySearchTree.search(value: 2)?.delete()
+        var result = [Int]()
+        self.binarySearchTree.traverseInOrder { (value) in
+            result.append(value)
         }
+        XCTAssertEqual(result, [1, 5, 7, 9, 10])
+    }
+    
+    func testHeight() {
+        let height = self.binarySearchTree.getHeight()
+        XCTAssertEqual(height, 2)
+    }
+    
+    func testDepth() {
+        let depth = self.binarySearchTree.search(value: 2)?.getDepth()
+        XCTAssertEqual(depth, 1)
     }
 
+    func testInOrderTraversal() {
+        let inOrderTraversalResult = [1, 2, 5, 7, 9, 10]
+        var result = [Int]()
+        self.binarySearchTree.traverseInOrder { (value) in
+            result.append(value)
+        }
+        XCTAssertEqual(result, inOrderTraversalResult)
+    }
+    
+    func testPreOrderTraversal() {
+        let preOrderTraversalResult = [7, 2, 1, 5, 10, 9]
+        var result = [Int]()
+        self.binarySearchTree?.traversePreOrder { (value) in
+            result.append(value)
+        }
+        XCTAssertEqual(result, preOrderTraversalResult)
+    }
+    
+    func testPostOrderTraversal() {
+        let postOrderTraversalResult = [1, 5, 2, 9, 10, 7]
+        var result = [Int]()
+        self.binarySearchTree.traversePostOrder { (value) in
+            result.append(value)
+        }
+        XCTAssertEqual(result, postOrderTraversalResult)
+    }
 }

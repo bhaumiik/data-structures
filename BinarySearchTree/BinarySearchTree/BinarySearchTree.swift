@@ -159,6 +159,37 @@ public class BinarySearchTree<T: Comparable> {
         }
         return depth
     }
+    
+    /// Finds the node whose value precedes our value in sorted order.
+    /// - Complexity: O(*h*), where *h* is the height of the tree.
+    public func getPredeccessor() -> BinarySearchTree? {
+        if let left = self.left {
+            // if left branch exist, than maximum value in left branch is predeccessor.
+            return left.findMaximum()
+        } else {
+            var node = self
+            while let parent = node.parent {
+                if parent.value < self.value { return parent }
+                node = parent
+            }
+            return nil
+        }
+    }
+    
+    /// Finds the node whose value succeeds our value in sorted order.
+    /// - Complexity: O(*h*), where *h* is the height of the tree.
+    public func getSuccessor() -> BinarySearchTree? {
+        if let right = self.right {
+            return right.findMinimum()
+        } else {
+            var node = self
+            while let parent = node.parent {
+                if parent.value > self.value { return parent }
+                node = parent
+            }
+            return nil
+        }
+    }
 }
 
 // MARK: - Traversal

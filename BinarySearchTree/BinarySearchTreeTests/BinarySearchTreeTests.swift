@@ -45,7 +45,17 @@ class BinarySearchTreeTests: XCTestCase {
         let depth = self.binarySearchTree.search(value: 2)?.getDepth()
         XCTAssertEqual(depth, 1)
     }
+    
+    func testPredeccessor() {
+        let predeccessor = self.binarySearchTree.getPredeccessor()
+        XCTAssertEqual(predeccessor?.value, 5)
+    }
 
+    func testSuccessor() {
+        let successor = self.binarySearchTree.getSuccessor()
+        XCTAssertEqual(successor?.value, 9)
+    }
+    
     func testInOrderTraversal() {
         let inOrderTraversalResult = [1, 2, 5, 7, 9, 10]
         var result = [Int]()

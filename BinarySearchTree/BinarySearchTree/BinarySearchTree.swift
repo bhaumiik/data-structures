@@ -164,7 +164,7 @@ public class BinarySearchTree<T: Comparable> {
     /// - Complexity: O(*h*), where *h* is the height of the tree.
     public func getPredeccessor() -> BinarySearchTree? {
         if let left = self.left {
-            // if left branch exist, than maximum value in left branch is predeccessor.
+            // if left branch exist, then maximum value in left branch is predeccessor.
             return left.findMaximum()
         } else {
             var node = self
@@ -180,6 +180,7 @@ public class BinarySearchTree<T: Comparable> {
     /// - Complexity: O(*h*), where *h* is the height of the tree.
     public func getSuccessor() -> BinarySearchTree? {
         if let right = self.right {
+            // if right branch exist, then minimum value in right branch is successor.
             return right.findMinimum()
         } else {
             var node = self
@@ -189,6 +190,15 @@ public class BinarySearchTree<T: Comparable> {
             }
             return nil
         }
+    }
+    
+    /// Checks if tree is a valid Binary Search Tree.
+    /// - Complexity: O(*n*), where *n* is the number of nodes in tree.
+    public func isBST(minValue: T, maxValue: T) -> Bool {
+        guard self.value > minValue || self.value < maxValue else { return false }
+        let leftBST = self.left?.isBST(minValue: minValue, maxValue: self.value) ?? true
+        let rightBST = self.right?.isBST(minValue: self.value, maxValue: maxValue) ?? true
+        return leftBST && rightBST
     }
 }
 

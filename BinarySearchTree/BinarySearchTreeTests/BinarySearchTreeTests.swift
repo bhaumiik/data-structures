@@ -56,6 +56,11 @@ class BinarySearchTreeTests: XCTestCase {
         XCTAssertEqual(successor?.value, 9)
     }
     
+    func testBST() {
+        let isBST = self.binarySearchTree.isBST(minValue: Int.min, maxValue: Int.max)
+        XCTAssertEqual(isBST, true)
+    }
+    
     func testInOrderTraversal() {
         let inOrderTraversalResult = [1, 2, 5, 7, 9, 10]
         var result = [Int]()

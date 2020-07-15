@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B9844BAB24BE78FD00AB6AE0 /* AdjacencyListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B384824BBD67100750B51 /* AdjacencyListTests.swift */; };
+		B9844BAB24BE78FD00AB6AE0 /* AdjacencyListGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B384824BBD67100750B51 /* AdjacencyListGraphTests.swift */; };
+		B9844BAD24BE7CB600AB6AE0 /* AdjacencyMatrixGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9844BAC24BE7CB600AB6AE0 /* AdjacencyMatrixGraph.swift */; };
+		B9844BAF24BE7CD000AB6AE0 /* AdjacencyMatrixGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9844BAE24BE7CD000AB6AE0 /* AdjacencyMatrixGraphTests.swift */; };
 		B99B385424BBD68300750B51 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B385324BBD68300750B51 /* Graph.swift */; };
 		B9B4736224BE5A4A005A3EAA /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4736124BE5A4A005A3EAA /* Edge.swift */; };
 		B9B4736424BE5A51005A3EAA /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4736324BE5A51005A3EAA /* Vertex.swift */; };
@@ -15,8 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B9844BAC24BE7CB600AB6AE0 /* AdjacencyMatrixGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjacencyMatrixGraph.swift; sourceTree = "<group>"; tabWidth = 3; };
+		B9844BAE24BE7CD000AB6AE0 /* AdjacencyMatrixGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjacencyMatrixGraphTests.swift; sourceTree = "<group>"; };
 		B99B384424BBD67100750B51 /* GraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B99B384824BBD67100750B51 /* AdjacencyListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjacencyListTests.swift; sourceTree = "<group>"; };
+		B99B384824BBD67100750B51 /* AdjacencyListGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjacencyListGraphTests.swift; sourceTree = "<group>"; };
 		B99B384A24BBD67100750B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B99B385324BBD68300750B51 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		B9B4736124BE5A4A005A3EAA /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 				B9B4736124BE5A4A005A3EAA /* Edge.swift */,
 				B99B385324BBD68300750B51 /* Graph.swift */,
 				B9B4736524BE5B68005A3EAA /* AdjacencyListGraph.swift */,
+				B9844BAC24BE7CB600AB6AE0 /* AdjacencyMatrixGraph.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -66,7 +71,8 @@
 		B99B384724BBD67100750B51 /* GraphTests */ = {
 			isa = PBXGroup;
 			children = (
-				B99B384824BBD67100750B51 /* AdjacencyListTests.swift */,
+				B99B384824BBD67100750B51 /* AdjacencyListGraphTests.swift */,
+				B9844BAE24BE7CD000AB6AE0 /* AdjacencyMatrixGraphTests.swift */,
 				B99B384A24BBD67100750B51 /* Info.plist */,
 			);
 			path = GraphTests;
@@ -140,8 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9844BAB24BE78FD00AB6AE0 /* AdjacencyListTests.swift in Sources */,
+				B9844BAF24BE7CD000AB6AE0 /* AdjacencyMatrixGraphTests.swift in Sources */,
+				B9844BAB24BE78FD00AB6AE0 /* AdjacencyListGraphTests.swift in Sources */,
 				B9B4736624BE5B68005A3EAA /* AdjacencyListGraph.swift in Sources */,
+				B9844BAD24BE7CB600AB6AE0 /* AdjacencyMatrixGraph.swift in Sources */,
 				B99B385424BBD68300750B51 /* Graph.swift in Sources */,
 				B9B4736424BE5A51005A3EAA /* Vertex.swift in Sources */,
 				B9B4736224BE5A4A005A3EAA /* Edge.swift in Sources */,

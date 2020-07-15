@@ -1,22 +1,22 @@
 //
-//  AdjacencyListTests.swift
-//  AdjacencyListTests
+//  AdjacencyMatrixGraphTests.swift
+//  GraphTests
 //
-//  Created by Bhaumik on 2020-07-12.
+//  Created by Bhaumik on 2020-07-14.
 //  Copyright © 2020 Bhaumik. All rights reserved.
 //
 
 import XCTest
 
-class AdjacencyListTests: XCTestCase {
-    var graph: AdjacencyListGraph<String>!
+class AdjacencyMatrixGraphTests: XCTestCase {
+    var graph: AdjacencyMatrixGraph<String>!
     var vertexA: Vertex<String>!
     var vertexB: Vertex<String>!
     var vertexC: Vertex<String>!
     var vertexD: Vertex<String>!
     
     override func setUpWithError() throws {
-        graph = AdjacencyListGraph<String>()
+        graph = AdjacencyMatrixGraph<String>()
         vertexA = graph.createVertex(data: "a")
         vertexB = graph.createVertex(data: "b")
         vertexC = graph.createVertex(data: "c")
@@ -26,7 +26,7 @@ class AdjacencyListTests: XCTestCase {
         graph.addDirectedEdge(source: vertexB, destination: vertexC, weight: 2.0)
         graph.addDirectedEdge(source: vertexC, destination: vertexD, weight: 1.5)
     }
-
+    
     override func tearDownWithError() throws {
         graph = nil
         vertexA = nil
@@ -50,4 +50,5 @@ class AdjacencyListTests: XCTestCase {
         let edgesFromD = graph.edgesFrom(vertex: vertexD)
         XCTAssertEqual(edgesFromD?.count ?? 0, 0)
     }
+    
 }

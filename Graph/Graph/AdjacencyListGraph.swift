@@ -47,6 +47,8 @@ public class AdjacencyListGraph<T: Hashable>: Graph<T> {
         return Array(allEdges)
     }
     
+    /// Adds a new vertex to the list.
+    /// - Complexity: O(*V + E*), where *V* is number of vertices and *E* is number of edges.
     override func createVertex(data: T) -> Vertex<T> {
         // check if the vertex already exists
         let matchingVertices = vertices.filter { (vertex) -> Bool in
@@ -62,17 +64,20 @@ public class AdjacencyListGraph<T: Hashable>: Graph<T> {
         adjacencyList.append(Adjacency(vertex: vertex))
         return vertex
     }
-     
+    
+    /// Adds directed edge.
     override func addDirectedEdge(source: Vertex<T>, destination: Vertex<T>, weight: Double?) {
         let edge = Edge(from: source, to: destination, weight: weight)
         adjacencyList[source.index].add(edge: edge)
     }
     
+    /// Adds undirected edge.
     override func addUndirectedEdge(vertices: [Vertex<T>], weight: Double?) {
         addDirectedEdge(source: vertices.first!, destination: vertices.last!, weight: weight)
         addDirectedEdge(source: vertices.last!, destination: vertices.first!, weight: weight)
     }
     
+    /// - Returns: `weight` of edge between source vertex and destination vertex.
     override func weightFrom(source: Vertex<T>, destination: Vertex<T>) -> Double? {
         let adjacency = adjacencyList[source.index]
         guard let edges = adjacency.edges else { return nil }
@@ -84,6 +89,7 @@ public class AdjacencyListGraph<T: Hashable>: Graph<T> {
         return nil
     }
     
+    /// - Returns: The list of `Edges` from given vertex.
     override func edgesFrom(vertex: Vertex<T>) -> [Edge<T>]? {
         return adjacencyList[vertex.index].edges
     }
